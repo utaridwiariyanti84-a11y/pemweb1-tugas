@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Volunteer Sign Up Form</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --card: #ffffff;
+      --border: #e5e5e5;
+      --text: #111;
+      --muted: #666;
+      --accent: #007bff;
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Inter", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 40px;
+    }
+    .container {
+      width: 100%;
+      max-width: 480px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: 0 6px 22px rgba(0,0,0,0.05);
+      padding: 28px;
+    }
+    h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin: 0 0 6px;
+    }
+    p.subtitle {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+    .two {
+      display: flex;
+      gap: 12px;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      font-size: 13.5px;
+      margin-bottom: 6px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="time"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      font-size: 14px;
+      background: #fafafa;
+      outline: none;
+    }
+    input::placeholder, textarea::placeholder { color: #aaa; }
+    .section-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+    .section-sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .grid-checks {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px 10px;
+      margin-bottom: 12px;
+    }
+    .check {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+    }
+    .check input {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--accent);
+    }
+    textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+    .terms {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin: 14px 0;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .submit-wrap {
+      text-align: center;
+      margin-top: 10px;
+    }
+    button {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    @media (max-width: 480px) {
+      body { padding: 20px; }
+      .card { padding: 22px; }
+      .grid-checks { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form class="card" onsubmit="event.preventDefault(); alert('Volunteer form submitted (demo).');">
+      <h1>Volunteer Sign Up Form</h1>
+      <p class="subtitle">Please fill out the following form to become a volunteer.</p>
+
+      <!-- First & Last Name -->
+      <div class="two">
+        <div style="flex:1;">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
+        </div>
+        <div style="flex:1;">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <label for="email" style="margin-top:12px;">Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+
+      <!-- Phone Number -->
+      <label for="phone" style="margin-top:12px;">Phone Number</label>
+      <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+
+      <!-- Date of Birth -->
+      <label for="dob" style="margin-top:12px;">Date of Birth</label>
+      <input type="date" id="dob" name="dob">
+
+      <!-- Preferred Volunteer Role -->
+      <label for="role" style="margin-top:12px;">Preferred Volunteer Role</label>
+      <select id="role" name="role" required>
+        <option value="" disabled selected>Select your preferred volunteer role</option>
+        <option value="event">Event Helper</option>
+        <option value="fundraising">Fundraising Assistant</option>
+        <option value="community">Community Outreach</option>
+      </select>
+
+      <!-- Availability -->
+      <div class="section-title">Availability</div>
+      <div class="section-sub">Days Available</div>
+      <div class="grid-checks">
+        <label class="check"><input type="checkbox" name="day" value="monday"> Monday</label>
+        <label class="check"><input type="checkbox" name="day" value="tuesday"> Tuesday</label>
+        <label class="check"><input type="checkbox" name="day" value="wednesday"> Wednesday</label>
+        <label class="check"><input type="checkbox" name="day" value="thursday"> Thursday</label>
+        <label class="check"><input type="checkbox" name="day" value="friday"> Friday</label>
+        <label class="check"><input type="checkbox" name="day" value="saturday"> Saturday</label>
+        <label class="check"><input type="checkbox" name="day" value="sunday"> Sunday</label>
+      </div>
+
+      <div class="two">
+        <div style="flex:1;">
+          <label for="startTime">Available Start Time</label>
+          <input type="time" id="startTime" name="startTime" value="09:00">
+        </div>
+        <div style="flex:1;">
+          <label for="endTime">Available End Time</label>
+          <input type="time" id="endTime" name="endTime" value="17:00">
+        </div>
+      </div>
+
+      <!-- Skills and Interests -->
+      <div class="section-title">Skills and Interests</div>
+
+      <label for="skills" style="margin-top:6px;">Skills and Experience</label>
+      <textarea id="skills" name="skills" placeholder="Enter your skills and experience"></textarea>
+
+      <div class="section-sub" style="margin-top:10px;">Interests</div>
+      <div class="grid-checks">
+        <label class="check"><input type="checkbox" name="interest" value="animals"> Animals</label>
+        <label class="check"><input type="checkbox" name="interest" value="children"> Children</label>
+        <label class="check"><input type="checkbox" name="interest" value="elderly"> Elderly</label>
+        <label class="check"><input type="checkbox" name="interest" value="environment"> Environment</label>
+        <label class="check"><input type="checkbox" name="interest" value="health"> Health</label>
+        <label class="check"><input type="checkbox" name="interest" value="homelessness"> Homelessness</label>
+        <label class="check"><input type="checkbox" name="interest" value="poverty"> Poverty</label>
+      </div>
+
+      <!-- Terms -->
+      <label class="terms">
+        <input type="checkbox" name="agree" required>
+        <span>I agree to the terms and conditions of the volunteer program.</span>
+      </label>
+
+      <div class="submit-wrap">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
