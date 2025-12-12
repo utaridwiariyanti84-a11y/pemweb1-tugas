@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Slideshow jQuery (Fade)</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 40px;
+        }
+        #slideshow {
+            width: 400px;
+            height: 250px;
+            margin: auto;
+            position: relative;
+        }
+        #slideshow img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            display: none;
+            border-radius: 8px;
+        }
+        .btn {
+            margin: 20px 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Slideshow jQuery (Fade)</h2>
+
+    <div id="slideshow">
+        <img src="teman1.jpg" class="slide" style="display:block;">
+        <img src="teman2.jpg" class="slide">
+        <img src="teman3.jpg" class="slide">
+    </div>
+
+    <button class="btn" id="prev">Prev</button>
+    <button class="btn" id="next">Next</button>
+
+
+    <script>
+        $(document).ready(function() {
+            let index = 0;
+            let slides = $(".slide");
+
+            function showSlide(i) {
+                slides.fadeOut();
+                slides.eq(i).fadeIn();
+            }
+
+            $("#next").click(function() {
+                index++;
+                if (index >= slides.length) index = 0;
+                showSlide(index);
+            });
+
+            $("#prev").click(function() {
+                index--;
+                if (index < 0) index = slides.length - 1;
+                showSlide(index);
+            });
+        });
+    </script>
+
+</body>
+</html>

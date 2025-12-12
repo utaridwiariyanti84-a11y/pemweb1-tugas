@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>FAQ Interaktif jQuery</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+            cursor: pointer;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+        .faq-item:hover {
+            background-color: #e6f0ff;
+        }
+        .faq-question {
+            font-weight: bold;
+        }
+        .faq-answer {
+            display: none;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>FAQ Interaktif (jQuery)</h1>
+
+    <div class="faq-item">
+        <div class="faq-question">1. Apa itu jQuery?</div>
+        <div class="faq-answer">jQuery adalah library JavaScript untuk memudahkan manipulasi HTML, CSS, dan event.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">2. Bagaimana cara kerja .click()?</div>
+        <div class="faq-answer">.click() digunakan untuk menangani event klik pada elemen.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">3. Apa fungsi .toggle()?</div>
+        <div class="faq-answer">.toggle() digunakan untuk menampilkan atau menyembunyikan elemen secara bergantian.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">4. Apa itu selector jQuery?</div>
+        <div class="faq-answer">Selector digunakan untuk memilih elemen HTML yang ingin dimanipulasi.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">5. Apa itu event hover?</div>
+        <div class="faq-answer">Event hover terjadi ketika mouse berada di atas dan keluar dari elemen.</div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+
+            // klik → tampilkan/sembunyikan jawaban
+            $(".faq-item").click(function() {
+                $(this).find(".faq-answer").toggle();
+            });
+
+            // hover → warna biru, keluar → normal
+            $(".faq-item").hover(
+                function() { $(this).css("background-color", "#d0e4ff"); },
+                function() { $(this).css("background-color", "white"); }
+            );
+
+        });
+    </script>
+
+</body>
+</html>

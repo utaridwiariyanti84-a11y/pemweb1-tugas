@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 5 - Chaining</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <style>
+        #notif {
+            width: 300px;
+            padding: 15px;
+            text-align: center;
+            display: none;
+            background-color: #ddd; /* warna default (abu) */
+            color: black;
+            border-radius: 5px;
+        }
+
+        #btn {
+            padding: 10px 20px;
+            background: #e91e63;  /* warna tombol PINK */
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="btn">Tampilkan Notifikasi</button>
+
+    <br><br>
+
+    <div id="notif">Notifikasi berjalan sesuai ketentuan.</div>
+
+    <script>
+        $(document).ready(function(){
+
+            $("#btn").click(function(){
+
+                $("#notif")
+                    .css("background-color", "#8BC34A")  // 1. Ubah warna (HIJAU MUDA - berbeda)
+                    .fadeIn(500)                        // 2. Fade In
+                    .slideDown(500)                     // 3. Slide Down
+                    .delay(3000)                        // 4. Tunggu 3 detik
+                    .slideUp(500)                       // 5. Slide Up
+                    .fadeOut(500);                      // 6. Fade Out
+
+            });
+
+        });
+    </script>
+
+</body>
+</html>
